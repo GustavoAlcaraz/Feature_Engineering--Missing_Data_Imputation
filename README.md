@@ -5,4 +5,11 @@ Data download from Center for Machine Learning and Intelligent Systems at the Un
 
 Source: Paulo Cortez, University of Minho, GuimarÃ£es, Portugal, http://www3.dsi.uminho.pt/pcortez
 
+Concepts: 
+Missing data
+Variable Distribution
+Rare Labels
+Linear Assumptions
+Outliers
+Feature Magnitude
 
