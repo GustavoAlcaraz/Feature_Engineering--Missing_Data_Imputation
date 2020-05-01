@@ -3,6 +3,8 @@ Feature engineering is the process of using domain knowledge to extract features
 
 Concepts: Missing data, Variable Distribution, Rare Labels, Linear Assumptions, Outliers, Feature Magnitude
 
+I used the lessons learned in the "Feature Engineering for Machine Learning" course, by Soledad Galli, PhD
+
 Data download from Center for Machine Learning and Intelligent Systems at the University of California.
 
 
