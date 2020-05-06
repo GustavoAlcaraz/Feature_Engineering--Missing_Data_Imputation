@@ -1,0 +1,24 @@
+Frequent category imputation with Scikit-learn ==> SimpleImputer
+Scikit-learn provides a class to make most of the most common data imputation techniques.
+
+The SimpleImputer class provides basic strategies for imputing missing values, including:
+
+Mean and median imputation for numerical variables
+Most frequent category imputation for categorical variables
+Arbitrary value imputation for both categorical and numerical variables
+Advantages
+Simple to use if applied to the entire dataframe
+Maintained by the scikit-learn developers: good quality code
+Fast computation (it uses numpy for calculations)
+Allows for grid search over the various imputation techniques
+Allows for different missing values encodings (you can indicate if the missing values are np.nan, or zeroes, etc)
+Limitations
+Returns a numpy array instead of a pandas dataframe, inconvenient for data analysis
+Needs to use additional classes to select which features to impute ==>
+requires more lines of code
+additional classes still in beta (may change without warning)
+not so straightforward to use anymore.
+More details about the transformers
+SimpleImputer
+ColumnTransformer
+Stackoverflow
