@@ -1,0 +1,7 @@
+ Automatic selection of best imputation technique with Sklearn
+
+In this notebook we will do a grid search over the imputation methods available in Scikit-learn to determine which imputation technique works best for this dataset and the machine learning model of choice.
+
+We will also train a very simple machine learning model as part of a small pipeline.
+
+We will use the House Price dataset.
