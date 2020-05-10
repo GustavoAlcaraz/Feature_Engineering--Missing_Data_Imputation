@@ -1,0 +1,61 @@
+## Mean / Median imputation
+
+Imputation is the act of replacing missing data with statistical estimates of the missing values. The goal of any imputation technique is to produce a **complete dataset** that can be used to train machine learning models.
+
+Mean / median imputation consists of replacing all occurrences of missing values (NA) within a variable by the mean (if the variable has a Gaussian distribution) or median (if the variable has a skewed distribution).
+
+**Note the following**:
+
+- If a variable is normally distributed, the mean, median and mode, are approximately the same. Therefore, replacing missing values by the mean and the median are equivalent. Replacing missing data by the mode is not common practice for  numerical variables.
+- If the variable is skewed, the mean is biased by the values at the far end of the distribution. Therefore, the median is a better representation of the majority of the values in the variable.
+- For discrete variables casted as 'int' (to save memory), the mean may not be an integer, therefore the whole variable will be re-casted as 'float'. In order to avoid this behaviour, we can replace NA with the median instead. The median will inevitably be an integer / discrete value as well.
+
+
+### Which variables can I impute with Mean / Median Imputation?
+
+The mean and median can only be calculated on numerical variables, therefore these methods are suitable for continuous and discrete numerical variables only.
+
+
+### Assumptions
+
+- Data is missing completely at random (MCAR)
+- The missing observations, most likely look like the majority of the observations in the variable (aka, the mean / median)
+
+If data is missing completely at random, then it is fair to assume that the missing values, are most likely very close to the value of the mean or the median of the distribution, as these represent the most frequent / average observation.
+
+
+### Advantages
+
+- Easy to implement
+- Fast way of obtaining complete datasets
+- Can be integrated in production (during model deployment)
+
+### Limitations
+
+- Distortion of the original variable distribution
+- Distortion of the original variance
+- Distortion of the covariance with the remaining variables of the dataset
+
+When replacing NA with the mean or median, the variance of the variable will be distorted if the number of NA is big respect to the total number of observations, leading to underestimation of the variance.
+
+In addition, estimates of covariance and correlations with other variables in the dataset may also be affected. Mean / median imputation may alter intrinsic correlations since the mean / median value that now replaces the missing data will not necessarily preserve the relation with the remaining variables.
+
+Finally, concentrating all missing values at the mean / median value, may lead to observations that are common occurrences in the distribution, to be picked up as outliers.
+
+
+### When to use mean / median imputation?
+
+- Data is missing completely at random
+- No more than 5% of the variable contains missing data
+
+Although in theory, the above conditions should be met to minimise the impact of this imputation technique, in practice, mean / median imputation is very commonly used, even in those cases when data is not MCAR and there are a lot of missing values. The reason behind this, is the simplicity of the technique.
+
+
+### Final note
+
+Replacement of NA with mean / median is widely used in the data science community and in various data science competitions. See for example the winning solution of the KDD 2009 cup: ["Winning the KDD Cup Orange Challenge with Ensemble Selection"]( http://www.mtome.com/Publications/CiML/CiML-v3-book.pdf).
+
+Typically, mean / median imputation is done together with adding a binary "missing indicator" variable to capture those observations where the data was missing (see lecture "Missing Indicator"), thus covering 2 angles: if the data was missing completely at random, this would be captured by the mean /median imputation, and if it wasn't this would be captured by the additional "missing indicator" variable. Both methods are extremely straight forward to implement, and therefore are a top choice in data science competitions.
+
+
+We will perform mean and median imputation using pandas on the auto-mpg Datasets.
