@@ -5,4 +5,6 @@ In statistics, imputation is the process of replacing missing data with substitu
 
 - Wikipedia
 
-
+The exercises are based on the training notes:
+Feature Engineering for Machine Learning
+by Soledad Galli
